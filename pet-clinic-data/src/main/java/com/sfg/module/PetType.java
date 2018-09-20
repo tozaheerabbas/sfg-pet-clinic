@@ -1,6 +1,6 @@
 package com.sfg.module;
 
-public class PetType {
+public class PetType extends BaseEntity {
 	String name;
 
 	public String getName() {
