@@ -1,13 +1,14 @@
 package com.sfg.services.map;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public abstract class AbstractMapService <T, ID> {
+public abstract class AbstractMapService <T, ID extends Long> {
 	
-	Map<ID,T> map =new HashMap<>();
+	Map<Long,T> map =new HashMap<>();
 	
 	Set<T> findAll(){
 		return new HashSet<T>(map.values());
@@ -17,7 +18,8 @@ public abstract class AbstractMapService <T, ID> {
 		return map.get(id);
 	}
 	
-	T save(ID id,T obj) {
+	T save(T obj) {
+		Long id = getNextId();
 		map.put(id,obj);
 		return obj;
 	}
@@ -28,6 +30,15 @@ public abstract class AbstractMapService <T, ID> {
 	
 	void delete(T obj) {
 		map.entrySet().removeIf(entry -> entry.getValue().equals(obj) );
+	}
+	
+	private Long getNextId() {
+		Long nextId = 1L;
+		if(map != null && map.size() > 0) {
+			nextId = Collections.max(map.keySet()) + 1;
+		}
+		
+		return nextId;
 	}
 	
 }
