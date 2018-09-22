@@ -2,10 +2,13 @@ package com.sfg.services.map;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import com.sfg.module.Pet;
 
 import com.sfg.services.PetService;
 
+@Service
 public class PetSeerviceMap extends AbstractMapService<Pet, Long>implements PetService{
 
 	@Override

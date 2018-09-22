@@ -21,10 +21,11 @@ public class DataLoader implements CommandLineRunner {
 	private final OwnerService ownerService;
 	
 	
-	
-	public DataLoader() {		
-		vetService = new VetServiceMap();
-		ownerService = new OwnerServiceMap();
+
+	public DataLoader(VetService vetService, OwnerService ownerService) {
+		super();
+		this.vetService = vetService;
+		this.ownerService = ownerService;
 	}
 
 
