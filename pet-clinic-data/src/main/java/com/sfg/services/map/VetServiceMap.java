@@ -3,9 +3,10 @@ package com.sfg.services.map;
 import java.util.Set;
 
 import com.sfg.module.Vet;
-import com.sfg.services.CRUDService;
 
-public class VetServiceMap extends AbstractMapService<Vet, Long>implements CRUDService<Vet, Long>{
+import com.sfg.services.VetService;
+
+public class VetServiceMap extends AbstractMapService<Vet, Long>implements VetService{
 
 	@Override
 	public Set<Vet> findAll() {
